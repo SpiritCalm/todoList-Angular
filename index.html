@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="todoapp">
+
+<head>
+    <title>Todo List Assignment</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="jquery.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h2>Todo List:</h2>
+    <div ng-controller="todoController as todo">
+        <h3>Total todo items: {{todo.totalTodos}}</h3>
+        <ul class="unstyled">
+            <li ng-repeat="item in todo.items">
+                <input type="checkbox" ng-model="item.done">
+                <span class="done-{{item.done}}">{{item.text}}</span>
+            </li>
+        </ul>
+        <form class="form-horizontal">
+            <input type="text" ng-model="formTodoText" ng-model-instant>
+            <button class="btn" ng-click="addTodo()"><i class="icon-plus">Add</i></button>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="todoapp.module.js"></script>
+    <script src="controller.js"></script>
+</body>
+
+</html>
